@@ -73,7 +73,7 @@ def make_predictions_df(good_stations):
     predictions = good_stations.copy()[['name', 'dist','ebikes_available', '10 min', '20 min', '30 min', '40 min', '50 min', '60 min']]
     predictions = predictions.rename(columns={"name": "stations", "ebikes_available": "ebikes"})
     predictions = predictions.sort_values('dist',axis=0, ascending=True)
-    predictions['dist'] = int(predictions['dist']*271819.44)
+    predictions['dist'] = round(predictions['dist']*271819.44)
     predictions = predictions.rename(columns={"dist": "dist (ft)"})
 
     # predictions = predictions.drop(['dist'], axis=1)
@@ -144,7 +144,7 @@ def combine_all(lat, lon, max_dist, df_citibike_live_stations, thresh_1 = 85, th
 # #     pre = pre.reset_index(level='ebikes')
 
     pre = pre.style.applymap(red_background_zero_values)
-    pre = pre.format({'ebikes': "{:4g}"})
+    pre = pre.format({'ebikes': "{:4g}", 'dist (ft)': "{:4g}"})
     return pre
 
 
