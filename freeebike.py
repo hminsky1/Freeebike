@@ -132,6 +132,8 @@ def combine_all(lat, lon, max_dist, df_citibike_live_stations, thresh_1 = 85, th
         return 'There are no freeebikes in this range.'
     good_stations = good_stations[good_stations['free_ebikes']==1]
     good_stations = add_time_data(good_stations)
+    good_stations['hold'] = good_stations['bike_angels_action'].apply(lambda x: -1 if x == 'take' else 1)
+    good_stations['bike_angels_points'] = good_stations['bike_angels_points'] * good_stations['hold']
     good_stations = add_weather_data(good_stations, ttemp, sent, rain, snow)
     predictions = make_predictions_df(good_stations)
     # dfpredictions = predictions.astype({'ebikes':'int'})
