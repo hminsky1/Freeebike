@@ -69,6 +69,7 @@ def app():
             st.write(plot_current_freeebikes(data, plot_colors))  	
     # st.markdown("This app was made by Helen Minsky because I love riding Citibikes. It is my capstone project for the data incubator. If you have questions about this app or just want to discuss bikeshare programs, you can contact me at helen.keays.minsky@mg.thedataincubator.com.")
     st.markdown('Made by Helen Minsky | helen.keays.minsky@mg.thedataincubator.com')
-    
+    st.markdown('The model was last updated on May 24, 2023')
+
 if __name__ == '__main__':
     app()
