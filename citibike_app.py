@@ -55,8 +55,8 @@ def app():
                     st.write(combine_all(lat_add, lon_add, max_dist, data, thresh_1, thresh_2, thresh_3))
                 #    if 'brooklyn' in addy.lower():
                     st.write('Good! - better than 85\% chance or remaining a freebike.')
-                    st.write('Likely - 70 -  85\% chance or remaining a freebike.')
-                    st.write('Maybe? - 50 -70\% chance or remaining a freebike.')
+                    st.write('Likely - 70 to 85\% chance or remaining a freebike.')
+                    st.write('Maybe? - 50 to 70\% chance or remaining a freebike.')
                     st.write('Nah... - at best a 50\% chance or remaining a freebike.')
 
                     ch = 1
