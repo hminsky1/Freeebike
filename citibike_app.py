@@ -54,6 +54,11 @@ def app():
                     data = make_citi_df()
                     st.write(combine_all(lat_add, lon_add, max_dist, data, thresh_1, thresh_2, thresh_3))
                 #    if 'brooklyn' in addy.lower():
+                    st.write('Good! - better than 85\% chance or remaining a freebike.')
+                    st.write('Likely - 70 -  85\% chance or remaining a freebike.')
+                    st.write('Maybe? - 50 -70\% chance or remaining a freebike.')
+                    st.write('Nah... - at best a 50\% chance or remaining a freebike.')
+
                     ch = 1
         # except:
             # st.write('Make sure you don\'t have any typos')
