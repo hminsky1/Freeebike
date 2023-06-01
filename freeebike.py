@@ -28,7 +28,9 @@ def temperature_at_address(address):
     else:
         pass_back.append(0)        
     wind_sentence = temp_data['data']['text'][0]
-    reg_wind = r'wind ([0-9]*) to ([0-9]+)|wind around ([0-9]*)'
+    # reg_wind = r'wind ([0-9]*) to ([0-9]+)|wind around ([0-9]*)'
+    reg_wind = r'wind[ a-zA-Z]+([0-9]*) to ([0-9]*)'
+
     m = re.findall(reg_wind, wind_sentence)
     windspeed_list = []
     for i in m[0]:
