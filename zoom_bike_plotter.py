@@ -9,14 +9,16 @@ import re
 
 def geocode(address):
     # this gets the longitude and latitude of the address
-
-    params = { 'format'        :'json',
-               'addressdetails': 1,
-               'q'             : address}
-    headers = { 'user-agent'   : 'TDI' }   #  Need to supply a user agent other than the default provided
-                                           #  by requests for the API to accept the query.
-    return requests.get('http://nominatim.openstreetmap.org/search',
-                        params=params, headers=headers)
+if ', Brooklyn' not in address:
+        print('Make sure to put in an address in Brooklyn. It should be formated like 123 Main Street, Brooklyn.')
+    else:
+        params = { 'format'        :'json',
+                   'addressdetails': 1,
+                   'q'             : address}
+        headers = { 'user-agent'   : 'TDI' }   #  Need to supply a user agent other than the default provided
+                                               #  by requests for the API to accept the query.
+        return requests.get('http://nominatim.openstreetmap.org/search',
+                            params=params, headers=headers)
 
 
 def get_address_lat_long(address):
